@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <title>Calculator</title>
+</head>
+<body>
+  
+  <div class="container">
+    <div class="row">
+      <h3 class="teal-text">Arithmetic Calculator</h3>
+      <form action="" class="col s12 valign-wrapper">
+        <div class="row">
+          <div class="input-field col s6 ">
+            <input id="first_number" type="text" class="validate">
+            <label for="first_number">First number</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="second_number" type="text" class="validate">
+            <label for="second_number">Second number</label>
+          </div>
+          <div class="col s6">
+            <a id="multiply" class="waves-effect waves-light btn" onclick="multiply()">Multiply</a>
+            <a id="divide" class="waves-effect waves-light btn" onclick="divide()">Divide</a>
+          </div>
+          <div class="col s6" > 
+            <b>The result : </b> 
+            <h3 id="show" class="teal-text"></h3>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+  <script>
+
+    function multiply(){
+      let fnum = document.getElementById('first_number').value;
+      let snum = document.getElementById('second_number').value;
+
+      if(fnum === "" || snum ==="" || fnum == null || snum == null){
+        M.toast({html: '<h6>Oops! Please Enter Some Numbers!</h6>' , classes: 'rounded deep-orange lighten-1 white-text'})
+      } 
+      else if(isNaN(fnum) || isNaN(snum)){
+        M.toast({html: '<h6>Oops! Must Enter Number!</h6>' , classes: 'rounded red white-text'})
+      }
+      else {
+        let sum = fnum * snum;
+        document.getElementById('show').innerHTML = sum;
+      }
+    }
+
+
+    function divide(){
+      let fnum = document.getElementById('first_number').value;
+      let snum = document.getElementById('second_number').value;
+
+      if(fnum === "" || snum ==="" || fnum == null || snum == null){
+        M.toast({html: '<h6>Oops! Please Enter Some Numbers!</h6>' , classes: 'rounded deep-orange lighten-1 white-text'})
+      } 
+      else if(isNaN(fnum) || isNaN(snum)){
+        M.toast({html: '<h6>Oops! Must Enter Number!</h6>' , classes: 'rounded red white-text'})
+      }
+      else {
+        let sum = fnum / snum;
+        document.getElementById('show').innerHTML = sum;
+      }
+    }
+
+
+  </script>
+
+
+
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+  </script>
+</body>
+</html>
